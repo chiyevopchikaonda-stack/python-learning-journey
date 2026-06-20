@@ -1,32 +1,48 @@
 # python-learning-journey
-How the System Works
+---
 
-This project is an AI Student Assistant built as a command-line application.
-It helps students manage tasks and gradually expands into a study tracking system.
+## Latest Progress (Refactored Architecture Update)
 
-System Flow
+The project has now been upgraded from a single-file CLI script into a modular Python application.
 
-When the application runs, it follows this process:
-Start application
-Display app name and welcome message
-Load saved tasks and data from storage
-Check for pending or due tasks (future feature)
-Display main menu
-User selects an option
-System processes the request
-Data is updated
-Changes are saved
-Loop continues until user exits
+### New System Structure
 
-Core Idea
+The codebase is now split into independent modules:
 
-The system is designed around three main parts:
-Interface (user interaction via menu)
-Logic (task handling and program decisions)
-Storage (saving data for later use)
+- `main.py` → Controls application flow (menu + startup)
+- `tasks.py` → Handles task creation, storage, and display
+- `mood.py` → Manages mood input and adaptive behavior system
+- `user.py` → Handles user profile creation and loading
+- `verses.py` → Generates random inspirational verses
 
-Current Version
+---
 
-Add tasks
-View tasks
-Basic program loop
+### Key Improvements
+
+- Modular architecture (each system has its own file)
+- Reusable functions across the application
+- Persistent data storage using JSON
+- Mood-based adaptive UI behavior
+- Dynamic inspirational verse on startup
+- Cleaner separation of logic, storage, and interface
+
+---
+
+### Current Features (Working)
+
+- User profile creation and loading
+- Mood selection system with feedback messages
+- Task management (add, view, mark as completed)
+- Random verse display on startup
+- Basic CLI navigation menu
+- Persistent storage using JSON files
+
+---
+
+### 🚧 In Progress / Next Upgrades
+
+- GUI version preview using Tkinter
+- Button-based task management
+- Improved mood analytics system
+- Task editing and deletion features
+- Better UI/UX structure for desktop app transition
