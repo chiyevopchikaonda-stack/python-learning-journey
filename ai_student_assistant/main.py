@@ -100,19 +100,20 @@ mood_behaviour={
 def load_mood_history():
       if os.path.exists(MOOD_FILE):
             with open(MOOD_FILE,"r") as file:
-                  return json.load(file)
-            return []
+                return json.load(file)
+      return []
 def save_mood(mood):
       history = load_mood_history()
       history.append(mood)
       with open(MOOD_FILE,"w") as file:
             json.dump(history,file)  
 def mood_insight():
-      history=load_mood_history
-      if not history:
-            return 
-      print("\nMood Insights📊:")
+      history = load_mood_history()
+      if not history:             
+        print("No mood history yet!📭")
+        return 
       most_common = max(set(history), key=history.count)
+      print("\nMood Insights📊:")
       print(f"You've mostly been feeling: {most_common}")
 
             # Task system
@@ -152,14 +153,6 @@ def main_menu(user,mood):
             while True:
                 print("\n Anchor Study Main Menu")
                 print(f"Current Mood: {mood}")
-                if mood == "Motivated":
-                  print("Let's keep that energy going!💪")
-                elif mood == "Tired":
-                  print("Remember to take breaks and rest when needed.😴")
-                elif mood == "Stressed":
-                  print("Breathe and take it one step at a time. You've got this!🌟")
-                else :
-                  print("Steady progress is still progress. Keep going!🚀")
                 behaviour=mood_behaviour.get(mood,mood_behaviour["Okay"])
                 print(behaviour["message"])
                 print("1. View Profile")
@@ -175,6 +168,9 @@ def main_menu(user,mood):
                     add_task()
                 elif choice == "3":
                     tasks = load_tasks()
+                    if not tasks:
+                        print("No tasks yet!📭")
+                        continue
                     behaviour = mood_behaviour.get(mood, mood_behaviour["Okay"])
                     mode = behaviour["task_mode"]
                     if mode == "minimal":
@@ -185,8 +181,8 @@ def main_menu(user,mood):
                           print("\nLight Mode (up to 3 tasks)")
                           for i, task in enumerate(tasks[:3], 1):
                                 print(f"{i}. {task['task']} - Due: {task['due']}")
-                          else :
-                                view_task
+                    else :
+                        view_task()
                 elif choice == "4":
                         print("Goodbye!👋")
                         break
