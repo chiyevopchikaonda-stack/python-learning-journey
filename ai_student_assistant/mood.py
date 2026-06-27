@@ -1,7 +1,6 @@
 import json
 import os
-MOOD_FILE="mood.json"
-
+MOOD_FILE="mood_history.json"
 moods = {
     "1": "Motivated",
     "2": "Okay",
@@ -61,3 +60,19 @@ def mood_insight():
       most_common = max(set(history), key=history.count)
       print("\nMood Insights📊:")
       print(f"You've mostly been feeling: {most_common}")
+
+def set_mood(mood):
+      save_mood(mood)
+      return mood
+
+def get_mood_insight():
+      history = load_mood_history()
+      if not history:
+            return None
+      return max(set(history), key=history.count)
+
+def get_current_mood():
+      history = load_mood_history()
+      if not history:
+            return None
+      return history[-1]

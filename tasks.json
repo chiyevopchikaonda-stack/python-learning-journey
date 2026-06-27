@@ -1,1 +1,37 @@
-[{"task": "Programming", "due": "30 August", "completed": true}, {"task": "history", "due": "tomorrow"}]
+[
+    {
+        "task": "Programming",
+        "due": "30 August",
+        "completed": true
+    },
+    {
+        "task": "history",
+        "due": "tomorrow",
+        "completed": true
+    },
+    {
+        "task": "Maths",
+        "due": "20 August",
+        "completed": true
+    },
+    {
+        "task": "English",
+        "due": "Tomorrow",
+        "completed": true
+    },
+    {
+        "task": "solar",
+        "due": "23062026",
+        "completed": true
+    },
+    {
+        "task": "AI",
+        "due": "Tomorrow",
+        "completed": false
+    },
+    {
+        "task": "ML",
+        "due": "26/06/2026",
+        "completed": false
+    }
+]

@@ -29,3 +29,6 @@ def show_welcome():
       print(verse["text"])
       print(f"- {verse['reference']}\n")
       print("--------------------------------------\n")
+
+def get_random_verse():
+      return random.choice(verses)
